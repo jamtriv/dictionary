@@ -1,6 +1,6 @@
-import pgzrun
-import pygame
-import math
+import pgzrun                                                                #importing pygame0 module
+import pygame                                                                #importing pygame module
+import math                                                                  #importing math moduke
 
 
 def update():                                                                 #defining update
@@ -31,4 +31,4 @@ def draw():                                                                   #d
 
 
 
-pgzrun.go()
+pgzrun.go()                                                                   #placeholder so game runs properly
