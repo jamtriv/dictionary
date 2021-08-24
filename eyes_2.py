@@ -8,7 +8,7 @@ def update():  # defining update
     pass  # used to add above function for syntax, for pygame
 
 
-def draw():  # defining draw
+def draw(coods):  # defining draw
     screen.fill((0, 0, 0))  # filling screen with black colour
 
     def draw_eye(coordinates):  # defining function to draw eyes
@@ -31,6 +31,9 @@ def draw():  # defining draw
 
         # pygame window, x= 800, y= 600
 
+    coordinates = coods
+    draw_eye(coordinates)
+
     """eye_coordinates = [(100, 367),
                        (487, 54),
                        (321, 287),
@@ -40,14 +43,10 @@ def draw():  # defining draw
                        (0, 45)
                        ]"""
 
-    random_coordinates = [(random.randrange(100, 600), random.randrange(100, 600)) for i in range(1)]
 
-    for eyes in random_coordinates:
-        draw_eye(eyes)
-        
+random_coordinates = [(random.randrange(100, 600), random.randrange(100, 600)) for i in range(1)]
 
-
-
-
+for eyes in random_coordinates:
+    draw(eyes)
 
 pgzrun.go()  # runs the game, looks for functions update and draw.
