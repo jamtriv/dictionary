@@ -4,11 +4,15 @@ import math  # importing math module
 import random
 
 
+random_eyes = random.randrange(0, 10)
+random_coordinates = [(random.randrange(0, 800), random.randrange(0, 600)) for i in range(random_eyes)]
+
+
 def update():  # defining update
     pass  # used to add above function for syntax, for pygame
 
 
-def draw(coods):  # defining draw
+def draw():  # defining draw
     screen.fill((0, 0, 0))  # filling screen with black colour
 
     def draw_eye(coordinates):  # defining function to draw eyes
@@ -31,22 +35,8 @@ def draw(coods):  # defining draw
 
         # pygame window, x= 800, y= 600
 
-    coordinates = coods
-    draw_eye(coordinates)
+    for eyes in random_coordinates:  # running through a list
+        draw_eye(eyes)  # calling draw eyes function
 
-    """eye_coordinates = [(100, 367),
-                       (487, 54),
-                       (321, 287),
-                       (145, 491),
-                       (800, 300),
-                       (500, 234),
-                       (0, 45)
-                       ]"""
-
-
-random_coordinates = [(random.randrange(100, 600), random.randrange(100, 600)) for i in range(1)]
-
-for eyes in random_coordinates:
-    draw(eyes)
 
 pgzrun.go()  # runs the game, looks for functions update and draw.
