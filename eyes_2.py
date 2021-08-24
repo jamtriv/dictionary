@@ -3,9 +3,11 @@ import pygame  # importing pygame module
 import math  # importing math module
 import random
 
-
 random_eyes = random.randrange(0, 10)
 random_coordinates = [(random.randrange(0, 800), random.randrange(0, 600)) for i in range(random_eyes)]
+random_eye_outlineColor = [(random.randrange(0, 255), random.randrange(0, 255), random.randrange(0, 255)) for i in
+                           range(1)]
+print(random_eye_outlineColor)
 
 
 def update():  # defining update
