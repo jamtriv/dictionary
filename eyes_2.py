@@ -5,8 +5,21 @@ import random
 
 random_eyes = random.randrange(1, 11)  # Randomly generating a number of eyes.
 random_coordinates = [(random.randrange(0, 800), random.randrange(0, 600)) for i in range(random_eyes)]  # Randomly generating where the eyes will go on the screen
-random_eye_outline_colour = [(random.randrange(0, 256), random.randrange(0, 256), random.randrange(0, 256)) for i in range(random_eyes)]  # Randomly generating the outline colour of the eye.
-random_eye_pupil_colour = [(random.randrange(0, 256), random.randrange(0, 256), random.randrange(0, 256)) for i in range(random_eyes)]  # Randomly generating the pupil colour of the eye.
+random_eye_outline_colours = [(random.randrange(0, 256), random.randrange(0, 256), random.randrange(0, 256)) for i in range(random_eyes)]  # Randomly generating the outline colour of the eye.
+#random_eye_pupil_colour = [(random.randrange(0, 256), random.randrange(0, 256), random.randrange(0, 256)) for i in range(random_eyes)]  # Randomly generating the pupil colour of the eye.
+
+print(random_eye_outline_colours)
+
+
+def invertColour(colour):
+    inversedcolour = tuple(255 - x for x in colour)
+    return inversedcolour
+
+
+pupil_colours = [invertColour(colour) for colour in random_eye_outline_colours]
+
+print(pupil_colours)
+
 
 def update():  # defining update
     pass  # used to add above function for syntax, for pygame
@@ -36,8 +49,8 @@ def draw():  # defining draw
 
         # pygame window, x= 800, y= 600
 
-    for coordinates, outlineColour, pupilColour in zip(random_coordinates, random_eye_outline_colour, random_eye_pupil_colour):
-        draw_eye(coordinates, outlineColour, pupilColour)
+    for coordinates, outlineColour, pupil_colour in zip(random_coordinates, random_eye_outline_colours, pupil_colours):
+        draw_eye(coordinates, outlineColour, pupil_colour)
 
 
 pgzrun.go()  # runs the game, looks for functions update and draw.
